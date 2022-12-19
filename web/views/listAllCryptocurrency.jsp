@@ -1,16 +1,10 @@
-<%-- 
-    Document   : listAllUser
-    Created on : 16 dic 2022, 14:05:28
-    Author     : Jarvis
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List cryptocurrency</title>
+        <title>SOB cryptocurrency explorer</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -26,9 +20,9 @@
             <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th class="th-sm">Name.</th>
-                        <th class="th-sm">Price.</th>
-                        <th class="th-sm">Price Time stamp.</th>                        
+                        <th class="th-sm">Name</th>
+                        <th class="th-sm">Price</th>
+                        <th class="th-sm">Price timestamp</th>                        
                     </tr>
                 </thead>
                 <tbody>
