@@ -23,27 +23,30 @@
                     <li class="breadcrumb-item active" aria-current="page">/SOBASE/listAllCryptocurrency</li>
                 </ol>
             </nav>
-            <c:forEach var="cryptocurrency" items="${cryptocurrencyList}">
-                <div>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <img class="card-img-top" src="<c:url value="/resources/img/cat.png"/>" alt="Card image cap">
-                        <h5>${cryptocurrency.name}</h5>
-                    </a>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card-group">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    description: ${cryptocurrency.description} <br>
-                                    price: ${cryptocurrency.price}
-                                </p>
-                                <p class="card-text"><small class="text-muted">priceTimestamp: ${cryptocurrency.priceTimestamp}</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+            <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Name.</th>
+                        <th class="th-sm">Price.</th>
+                        <th class="th-sm">Price Time stamp.</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="cryptocurrency" items="${cryptocurrencyList}">
+                        <tr>
+                            <td style="vertical-align: middle;">
+                                <a target="_blank" href="http://localhost:8080/SOBASE/listCryptocurrency.do">
+                                    <img src="<c:url value="/resources/img/${cryptocurrency.id}.png"/>" style="padding-left:5px; padding-right: 5px; width: 32px; height: 32px;">
+                                    ${cryptocurrency.name}
+                                </a>
+                                    <br>${cryptocurrency.description}
+                            </td>
+                            <td style="vertical-align: middle;">${cryptocurrency.price}</td>
+                            <td style="vertical-align: middle;">${cryptocurrency.priceTimestamp}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
