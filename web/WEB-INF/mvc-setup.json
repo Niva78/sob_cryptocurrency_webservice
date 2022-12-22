@@ -7,6 +7,10 @@
     {
       "URI": "/listAllCryptocurrency",
       "class": "cat.urv.deim.sob.command.listAllCryptocurrency"
+    },
+    {
+      "URI": "/cryptocurrency",
+      "class": "cat.urv.deim.sob.command.cryptocurrencyCommand"
     }
   ]
 }

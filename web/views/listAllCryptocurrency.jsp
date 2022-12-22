@@ -29,7 +29,7 @@
                     <c:forEach var="cryptocurrency" items="${cryptocurrencyList}">
                         <tr>
                             <td style="vertical-align: middle;">
-                                <a target="_blank" href="http://localhost:8080/SOBASE/listCryptocurrency.do">
+                                <a target="_blank" href="<c:url value="cryptocurrency.do?id=${cryptocurrency.id}"/>">
                                     <img src="<c:url value="/resources/img/${cryptocurrency.id}.png"/>" style="padding-left:5px; padding-right: 5px; width: 32px; height: 32px;">
                                     ${cryptocurrency.name}
                                 </a>

@@ -4,6 +4,7 @@
  */
 package cat.urv.deim.sob.service;
 
+import cat.urv.deim.sob.model.Purchase;
 import cat.urv.deim.sob.model.Cryptocurrency;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
@@ -19,11 +20,11 @@ import java.util.List;
 public class CryptocurrencyService {
     private WebTarget webTarget;
     private jakarta.ws.rs.client.Client client;
-    private static final String BASE_URI = "http://localhost:8080/sob-cryptocurrency-explorer/";
+    private static final String BASE_URI = "http://localhost:8080/sob-cryptocurrency-explorer/rest/api/v1/";
     
     public CryptocurrencyService(){
         client = jakarta.ws.rs.client.ClientBuilder.newClient();
-        webTarget = client.target(BASE_URI).path("rest/api/v1/cryptocurrency/");
+        webTarget = client.target(BASE_URI).path("cryptocurrency/");
     }
     
     public List<Cryptocurrency> listAllCryptocurrency(){
@@ -33,5 +34,13 @@ public class CryptocurrencyService {
         //    return response.readEntity(new GenericType<List<Cryptocurrency>>() {});
         //}
         return response.readEntity(new GenericType<List<Cryptocurrency>>() {});
+    }
+    
+    public Purchase getCryptocurrencyById(int id) {
+        Response response = client.target(BASE_URI)
+                .path("cryptocurrency/" + id)
+                .request(MediaType.APPLICATION_JSON)
+                .get();
+        return response.readEntity(Purchase.class);
     }
 }
