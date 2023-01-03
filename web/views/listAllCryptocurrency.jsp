@@ -4,14 +4,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SOB cryptocurrency explorer</title>
+        <title>SOB Cryptocurrency Explorer</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        <div class="container">            
+        
+        <c:if test="${not empty sessionEmail}">
+            <div>
+                Logged in as: ${sessionEmail}
+            </div>
+        </c:if>
+        
+        <c:if test="${empty sessionEmail}">
+            <div>
+                <a href="<c:url value="/views/login.jsp"/>">
+                    <input type="button" value="Log in">
+                </a>
+            </div>
+        </c:if>
+        
+        <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">/SOBASE/listAllCryptocurrency</li>

@@ -1,16 +1,16 @@
 {
   "commands": [
     {
-      "URI": "/signUpForm",
-      "class": "cat.urv.deim.sob.command.signUpFormCommand" 
-    },
-    {
       "URI": "/listAllCryptocurrency",
       "class": "cat.urv.deim.sob.command.listAllCryptocurrency"
     },
     {
       "URI": "/cryptocurrency",
       "class": "cat.urv.deim.sob.command.cryptocurrencyCommand"
+    },
+    {
+      "URI": "/login",
+      "class": "cat.urv.deim.sob.command.loginCommand"
     }
   ]
 }
