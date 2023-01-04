@@ -32,10 +32,20 @@
               <img src="<c:url value="/resources/img/${purchase.cryptocurrency.id}.png"/>" alt="...">
               <div class="caption">
                 <h3>${purchase.cryptocurrency.name}</h3>
-                <p>${purchase.cryptocurrency.description}</p>
-                <p>${purchase.cryptocurrency.price}</p>
-                <p>${purchase.cryptocurrency.priceTimestamp}</p>
-                <p><a href="#" class="btn btn-primary" role="button">Buy Coin</a></p>
+                <p>Description: ${purchase.cryptocurrency.description}</p>
+                <p>Price: ${purchase.cryptocurrency.price}</p>
+                <p>PriceTimestamp: ${purchase.cryptocurrency.priceTimestamp}</p>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                      <div class="input-group">
+                        <span class="input-group-btn">
+                          <button class="btn btn-primary" type="button">Buy</button>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Purchase amount...">
+                      </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                  </div><!-- /.row -->
               </div>
             </div>
           </div>
