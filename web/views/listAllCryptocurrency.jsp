@@ -15,6 +15,7 @@
         <c:if test="${not empty sessionEmail}">
             <div>
                 <span class="label label-success">Signed in as ${sessionEmail}</span>
+                <a href="<c:url value="/profile.do"/>">Profile</a>
             </div>
         </c:if>
         
@@ -25,6 +26,7 @@
                 </a>
             </div>
         </c:if>
+        
         
         <div class="container">
             <nav aria-label="breadcrumb">

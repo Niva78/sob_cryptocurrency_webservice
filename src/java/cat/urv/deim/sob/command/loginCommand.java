@@ -16,11 +16,14 @@ public class loginCommand implements Command {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
 
-        System.out.println(service.validateCustomer(email, password));
-        if (service.validateCustomer(email, password)) {
+        
+        Integer customerId = service.validateCustomer(email, password);
+
+        if(customerId != null){
             view = "listAllCryptocurrency.do";
             request.getSession().setAttribute("sessionEmail", email);
             request.getSession().setAttribute("sessionPassword", password);
+            request.getSession().setAttribute("sessionCustomerId", customerId);
         } else {
             view = "views/login.jsp";
             request.getSession().setAttribute("sessionEmail", null);
