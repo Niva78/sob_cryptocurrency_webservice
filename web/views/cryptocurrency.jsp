@@ -40,9 +40,24 @@
                     <div class="col-lg-6">
                       <div class="input-group">
                         <span class="input-group-btn">
-                          <button class="btn btn-primary" type="button">Buy</button>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Purchase amount...">
+                            <c:if test="${not empty sessionEmail}">
+                                <form action="<c:url value="purchase.do?id=${purchase.cryptocurrency.id}"/>" role="form" method="post">
+                                    <fieldset>
+                                        <span class="input-group-btn">
+                                            <input type="text" class="form-control" placeholder="Purchase amount..." name="purchasedAmount">
+                                            <input class="btn btn-primary" type="submit" value="Buy">
+                                        </span>
+                                    </fieldset>
+                                </form>
+                            </c:if>
+                            
+                            <c:if test="${empty sessionEmail}">
+                                <span class="input-group-btn" style="pointer-events: none; cursor: not-allowed; opacity: 0.65">
+                                    <input type="text" class="form-control" placeholder="Sign in to purchase...">
+                                    <button class="btn btn-primary" type="button">Buy</button>
+                                </span>
+                            </c:if>
+                            
                       </div><!-- /input-group -->
                     </div><!-- /.col-lg-6 -->
                   </div><!-- /.row -->

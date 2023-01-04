@@ -22,19 +22,19 @@
                             <form action="<c:url value="/login.do"/>" role="form" method="post">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="text" value="${email}">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="${password}">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                                        </label>
+                                        <input class="form-control" placeholder="Password" name="password" type="password">
                                     </div>
                                     <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                                 </fieldset>
                             </form>
+                            <c:if test="${not empty message}">
+                                <div>
+                                    <span class="label label-danger">${message}</span>
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,14 @@
     {
       "URI": "/login",
       "class": "cat.urv.deim.sob.command.loginCommand"
+    },
+    {
+      "URI": "/purchase",
+      "class": "cat.urv.deim.sob.command.purchaseCommand"
+    },
+    {
+      "URI": "/profile",
+      "class": "cat.urv.deim.sob.command.customerProfileCommand"
     }
   ]
 }
