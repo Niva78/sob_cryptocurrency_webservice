@@ -14,14 +14,14 @@
         
         <c:if test="${not empty sessionEmail}">
             <div>
-                Logged in as: ${sessionEmail}
+                <span class="label label-success">Signed in as ${sessionEmail}</span>
             </div>
         </c:if>
         
         <c:if test="${empty sessionEmail}">
             <div>
                 <a href="<c:url value="/views/login.jsp"/>">
-                    <input type="button" value="Log in">
+                    <span class="label label-warning">Log in</span>
                 </a>
             </div>
         </c:if>
