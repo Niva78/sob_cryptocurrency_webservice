@@ -16,6 +16,10 @@ public class loginCommand implements Command {
         String email = (String) request.getParameter("email");
         String password = (String) request.getParameter("password");
         
+        System.out.println(email);
+        System.out.println(password);
+
+        System.out.println(service.validateCustomer(email, password));
         if (service.validateCustomer(email, password)) {
             view = "listAllCryptocurrency.do";
             request.getSession().setAttribute("sessionEmail", email);

@@ -4,42 +4,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login - SOB Cryptocurrency Explorer</title>
+        <title>Login SOB Cryptocurrency</title>
+        <link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+        <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
+        <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        <div>
-            <div>
-                <h2>Log in</h2>
-                <div>
-                    <div>
-                        <form action="<c:url value="/login.do"/>" class="form-horizontal" method="post">
-                            <div>
-                                <label>Email</label>
-                                <div>
-                                    <input type="text" name="email" value="${email}" />
-                                </div>
-                            </div>
-                            <div>
-                                <label>Password</label>
-                                <div>
-                                    <input type="text" name="password" value="${password}" />
-                                </div>
-                            </div>
-                            <div>
-                                <!-- Button -->
-                                <div>
-                                    <input type="submit" value="Log in" />
-                                </div>
-                            </div>
-                        <form>
-                        <c:if test="${not empty message}">
-                            <div>
-                                ${message}        
-                            </div>
-                        </c:if>
+        <div class="container">
+            <div class="row vertical-offset-100">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please sign in</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="<c:url value="/login.do"/>" role="form" method="post">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="text" value="${email}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" value="${password}">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                                        </label>
+                                    </div>
+                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-	</div>
+        </div>
     </body>
 </html>
