@@ -53,6 +53,12 @@
                                             </span>
                                         </c:if>
                                 </div><!-- /input-group -->
+                                <c:if test="${not empty currentPurchase}">
+                                    ${currentPurchase.id} <br>
+                                    ${currentPurchase.purchasedAmount} <br>
+                                    ${currentPurchase.date} <br>
+                                    ${currentPurchase.cryptocurrency.name}
+                                </c:if>
                             </div><!-- /.col-lg-6 -->
                         </div><!-- /.row -->
                     </div>

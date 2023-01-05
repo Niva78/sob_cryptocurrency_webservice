@@ -14,7 +14,7 @@
     },
     {
       "URI": "/purchase",
-      "class": "cat.urv.deim.sob.command.purchaseCommand"
+      "class": "cat.urv.deim.sob.command.cryptocurrencyCommand"
     },
     {
       "URI": "/profile",

@@ -2,6 +2,7 @@ package cat.urv.deim.sob.command;
 
 import cat.urv.deim.sob.model.Purchase;
 import cat.urv.deim.sob.service.CryptocurrencyService;
+import cat.urv.deim.sob.service.PurchaseService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,12 +13,21 @@ public class cryptocurrencyCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CryptocurrencyService service = new CryptocurrencyService();
         String view = "views/cryptocurrency.jsp";
         
-        int id = Integer.parseInt(request.getParameter("id"));
-        Purchase p = service.getCryptocurrencyById(id);
+        if (request.getParameter("purchasedAmount") != null) {
+            double purchasedAmount = Double.valueOf(request.getParameter("purchasedAmount"));
+            int criptoId = Integer.valueOf(request.getParameter("id"));
+            String email = (String) request.getSession().getAttribute("sessionEmail");
+            String password = (String) request.getSession().getAttribute("sessionPassword");
+            Purchase purchase = new PurchaseService().makePurchase(criptoId, purchasedAmount, email, password);
+            if (purchase != null) {
+                request.setAttribute("currentPurchase", purchase);
+            }
+        }
         
+        int id = Integer.parseInt(request.getParameter("id"));
+        Purchase p = new CryptocurrencyService().getCryptocurrencyById(id);
         request.setAttribute("purchase", p);
         
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
