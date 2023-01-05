@@ -49,5 +49,8 @@ public class Purchase {
         this.customer = customer;
     }
     
+    public double getPrice() {
+        return this.purchasedAmount * this.cryptocurrency.getPrice();
+    }
     
 }

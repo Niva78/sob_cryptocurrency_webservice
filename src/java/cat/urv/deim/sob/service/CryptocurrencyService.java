@@ -41,7 +41,7 @@ public class CryptocurrencyService {
     
     public Purchase getCryptocurrencyById(int id) {
         Response response = webTarget
-                .path("cryptocurrency/" + id)
+                .path(String.valueOf(id))
                 .request(MediaType.APPLICATION_JSON)
                 .get();
         return response.readEntity(Purchase.class);
