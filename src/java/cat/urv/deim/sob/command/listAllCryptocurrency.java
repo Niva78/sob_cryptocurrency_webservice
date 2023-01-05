@@ -4,7 +4,6 @@
  */
 package cat.urv.deim.sob.command;
 
-import cat.urv.deim.sob.command.Command;
 import cat.urv.deim.sob.model.Cryptocurrency;
 import cat.urv.deim.sob.service.CryptocurrencyService;
 import jakarta.servlet.RequestDispatcher;
@@ -14,10 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- *
- * @author Jarvis
- */
 public class listAllCryptocurrency implements Command {
 
     @Override
@@ -25,7 +20,13 @@ public class listAllCryptocurrency implements Command {
         CryptocurrencyService service = new CryptocurrencyService();
         String view = "views/listAllCryptocurrency.jsp";
         
-        List<Cryptocurrency> cryptocurrencyList = service.listAllCryptocurrency();
+        String order = (String) request.getParameter("order");
+        
+        List<Cryptocurrency> cryptocurrencyList;
+        if (order != null && (order.equals("asc") || order.equals("desc")))
+            cryptocurrencyList = service.getAllCryptocurrenciesSortedByPrice(order);
+        else
+            cryptocurrencyList = service.getAllCryptocurrencies();
         
         request.setAttribute("cryptocurrencyList", cryptocurrencyList);
         
