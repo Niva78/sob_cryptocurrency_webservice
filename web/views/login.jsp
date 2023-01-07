@@ -27,6 +27,9 @@
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Password" name="password" type="password">
                                     </div>
+                                    <div>
+                                        <input name="from" type="hidden" value="${param.from}">
+                                    </div>
                                     <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                                 </fieldset>
                             </form>

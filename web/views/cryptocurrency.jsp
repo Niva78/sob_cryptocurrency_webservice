@@ -18,7 +18,7 @@
         </c:if>
         <c:if test="${empty sessionEmail}">
             <div>
-                <a href="<c:url value="/views/login.jsp"/>">
+                <a href="<c:url value="/views/login.jsp?from=cryptocurrency.do?id=${param.id}"/>">
                     <span class="label label-warning">Log in</span>
                 </a>
             </div>
