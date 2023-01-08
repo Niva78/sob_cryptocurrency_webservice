@@ -11,6 +11,23 @@
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
+        
+        <c:if test="${not empty sessionEmail}">
+            <div>
+                <span class="label label-success">Signed in as ${sessionEmail}</span>
+            </div>
+        </c:if>
+        
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <c:if test="${not empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+            </c:if>
+
+            <c:if test="${empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+            </c:if>
+        </ul>
         <div class="container">
             <div class="row vertical-offset-100">
                 <div class="col-md-4 col-md-offset-4">

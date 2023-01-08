@@ -11,9 +11,33 @@
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        ${customer.name}
-        ${customer.phone}
-        ${customer.email}
+        
+        <c:if test="${not empty sessionEmail}">
+            <div>
+                <span class="label label-success">Signed in as ${sessionEmail}</span>
+            </div>
+        </c:if>
+        
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <c:if test="${not empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+            </c:if>
+
+            <c:if test="${empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+            </c:if>
+        </ul>
+        <div class="container">
+            <div class="span3 well">
+                <center>
+                    <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+                    <h3>${customer.name}</h3>
+                    <em>Phone: ${customer.phone}</em> <br>
+                    <em>Email: ${customer.email}</em>
+		</center>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>

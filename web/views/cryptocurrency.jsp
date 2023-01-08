@@ -16,13 +16,17 @@
                 <span class="label label-success">Signed in as ${sessionEmail}</span>
             </div>
         </c:if>
-        <c:if test="${empty sessionEmail}">
-            <div>
-                <a href="<c:url value="/views/login.jsp?from=cryptocurrency.do?id=${param.id}"/>">
-                    <span class="label label-warning">Log in</span>
-                </a>
-            </div>
-        </c:if>
+        
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <c:if test="${not empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+            </c:if>
+
+            <c:if test="${empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+            </c:if>
+        </ul>
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
@@ -54,10 +58,11 @@
                                         </c:if>
                                 </div><!-- /input-group -->
                                 <c:if test="${not empty currentPurchase}">
-                                    ${currentPurchase.id} <br>
-                                    ${currentPurchase.purchasedAmount} <br>
-                                    ${currentPurchase.date} <br>
-                                    ${currentPurchase.cryptocurrency.name}
+                                    <div class="alert alert-success" role="alert">
+                                        Purchase ID: ${currentPurchase.id} <br>
+                                        Amount: ${currentPurchase.purchasedAmount} <br>
+                                        Date: ${currentPurchase.date}
+                                    </div>
                                 </c:if>
                             </div><!-- /.col-lg-6 -->
                         </div><!-- /.row -->

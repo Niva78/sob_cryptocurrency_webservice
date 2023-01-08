@@ -15,17 +15,19 @@
         <c:if test="${not empty sessionEmail}">
             <div>
                 <span class="label label-success">Signed in as ${sessionEmail}</span>
-                <a href="<c:url value="/profile.do"/>">Profile</a>
             </div>
         </c:if>
         
-        <c:if test="${empty sessionEmail}">
-            <div>
-                <a href="<c:url value="/views/login.jsp"/>">
-                    <span class="label label-warning">Log in</span>
-                </a>
-            </div>
-        </c:if>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href=""<c:url value="/listAllCryptocurrency.do"/>"">Home</a></li>
+            <c:if test="${not empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+            </c:if>
+
+            <c:if test="${empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+            </c:if>
+        </ul>
         
         <div class="container">
             <nav aria-label="breadcrumb">
