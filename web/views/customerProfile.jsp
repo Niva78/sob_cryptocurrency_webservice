@@ -19,13 +19,10 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
             <c:if test="${not empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
-            </c:if>
-
-            <c:if test="${empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation" class="active"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrency.do"/>">Log out</a></li>
             </c:if>
         </ul>
         <div class="container">
@@ -37,30 +34,30 @@
                     <em>Email: ${customer.email}</em>
 		</center>
             </div>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Purchase ID</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Coin amount</th>
-                    <th scope="col">Coin price (at purchase time)</th>
-                    <th scope="col">Amount (€)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="purchase" items="${purchaseList}">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>${purchase.id}</td>
-                        <td>${purchase.date}</td>
-                        <td>${purchase.cryptocurrency.name}</td>
-                        <td>${purchase.purchasedAmount}</td>
-                        <td>${purchase.cryptocurrency.price}</td>
-                        <td>${purchase.price}</td>
+                        <th scope="col">Purchase ID</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Coin</th>
+                        <th scope="col">Coin amount</th>
+                        <th scope="col">Coin price (at purchase time)</th>
+                        <th scope="col">Amount (€)</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <c:forEach var="purchase" items="${purchaseList}">
+                        <tr>
+                            <td>${purchase.id}</td>
+                            <td>${purchase.date}</td>
+                            <td>${purchase.cryptocurrency.name}</td>
+                            <td>${purchase.purchasedAmount}</td>
+                            <td>${purchase.cryptocurrency.price}</td>
+                            <td>${purchase.price}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

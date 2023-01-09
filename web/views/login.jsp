@@ -19,15 +19,12 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
-            <c:if test="${not empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
-            </c:if>
-
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
             <c:if test="${empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation" class="active"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
             </c:if>
         </ul>
+            
         <div class="container">
             <div class="row vertical-offset-100">
                 <div class="col-md-4 col-md-offset-4">

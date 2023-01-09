@@ -22,19 +22,15 @@
             <li role="presentation" class="active"><a href=""<c:url value="/listAllCryptocurrency.do"/>"">Home</a></li>
             <c:if test="${not empty sessionEmail}">
                 <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrency.do"/>">Log out</a></li>
             </c:if>
 
             <c:if test="${empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation"><a href="<c:url value="/views/login.jsp?from=/listAllCryptocurrency.do"/>">Log in</a></li>
             </c:if>
         </ul>
         
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">/SOBASE/listAllCryptocurrency</li>
-                </ol>
-            </nav>
             
             <div class="dropdown" style="margin-bottom: 25px">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

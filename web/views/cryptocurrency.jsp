@@ -18,73 +18,74 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
             <c:if test="${not empty sessionEmail}">
                 <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
+                <li role="presentation"><a href="<c:url value="/logOut.do?from=/cryptocurrency.do?id=${param.id}"/>">Log out</a></li>
             </c:if>
 
             <c:if test="${empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation"><a href="<c:url value="/views/login.jsp?from=cryptocurrency.do?id=${param.id}"/>">Log in</a></li>
             </c:if>
         </ul>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="<c:url value="/resources/img/${purchase.cryptocurrency.id}.png"/>" alt="...">
-                    <div class="caption">
-                        <h3>${purchase.cryptocurrency.name}</h3>
-                        <p>Description: ${purchase.cryptocurrency.description}</p>
-                        <p>Price: ${purchase.cryptocurrency.price}</p>
-                        <p>PriceTimestamp: ${purchase.cryptocurrency.priceTimestamp}</p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="input-group">
+            
+            
+        <div class="container">
+            <div class="span3 well">
+                <center>
+                    <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="<c:url value="/resources/img/${purchase.cryptocurrency.id}.png"/>" name="aboutme" width="64" height="64" class="img-circle"></a>
+                    <h3>${purchase.cryptocurrency.name}</h3>
+                    <em>Description: ${purchase.cryptocurrency.description}</em> <br>
+                    <em>Price: ${purchase.cryptocurrency.price}</em> <br>
+                    <em>PriceTimestamp: ${purchase.cryptocurrency.priceTimestamp}</em>
+                    
+                    <div class="col-12">
+                        <div class="input-group input-group-lg w-25 mx-auto">
+                            
+                            <c:if test="${not empty sessionEmail}">
+                            <form action="<c:url value="purchase.do?id=${purchase.cryptocurrency.id}"/>" role="form" method="post">
+                                <fieldset>
                                     <span class="input-group-btn">
-                                        <c:if test="${not empty sessionEmail}">
-                                            <form action="<c:url value="purchase.do?id=${purchase.cryptocurrency.id}"/>" role="form" method="post">
-                                                <fieldset>
-                                                    <span class="input-group-btn">
-                                                        <input type="text" class="form-control" placeholder="Purchase amount..." name="purchasedAmount">
-                                                        <input class="btn btn-primary" type="submit" value="Buy">
-                                                    </span>
-                                                </fieldset>
-                                            </form>
-                                        </c:if>
-                                        <c:if test="${empty sessionEmail}">
-                                            <span class="input-group-btn" style="pointer-events: none; cursor: not-allowed; opacity: 0.65">
-                                                <input type="text" class="form-control" placeholder="Sign in to purchase...">
-                                                <button class="btn btn-primary" type="button">Buy</button>
-                                            </span>
-                                        </c:if>
-                                </div><!-- /input-group -->
-                                <c:if test="${not empty currentPurchase}">
-                                    <div class="alert alert-success" role="alert">
-                                        Purchase ID: ${currentPurchase.id} <br>
-                                        Amount: ${currentPurchase.purchasedAmount} <br>
-                                        Date: ${currentPurchase.date}
-                                    </div>
-                                </c:if>
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
+                                        <input type="text" class="form-control" placeholder="Purchase amount..." name="purchasedAmount">
+                                        <input class="btn btn-primary" type="submit" value="Buy">
+                                    </span>
+                                </fieldset>
+                            </form>
+                            </c:if>
+                            
+                            <c:if test="${empty sessionEmail}">                
+                            <div class="alert alert-danger" role="alert">
+                                Sign in to purchase...
+                            </div>
+                            </c:if>
+                        </div>
                     </div>
-                </div>
+                    
+                    <c:if test="${not empty currentPurchase}">
+                    <div class="alert alert-success" role="alert">
+                        Purchase ID: ${currentPurchase.id} <br>
+                        Amount: ${currentPurchase.purchasedAmount} <br>
+                        Date: ${currentPurchase.date}
+                    </div>
+                    </c:if>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Time</th>
+                                <th scope="col">Amount (${purchase.cryptocurrency.name})</th>
+                                <th scope="col">Amount (€)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${purchase.date}</td>
+                                <td>${purchase.purchasedAmount}</td>
+                                <td>${purchase.price}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+		</center>
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Time</th>
-                    <th scope="col">Amount (${purchase.cryptocurrency.name})</th>
-                    <th scope="col">Amount (€)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>${purchase.date}</td>
-                    <td>${purchase.purchasedAmount}</td>
-                    <td>${purchase.price}</td>
-                </tr>
-            </tbody>
-        </table>
     </body>
 </html>
