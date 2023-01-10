@@ -26,6 +26,7 @@
 
             <c:if test="${empty sessionEmail}">
                 <li role="presentation"><a href="<c:url value="/views/login.jsp?from=cryptocurrency.do?id=${param.id}"/>">Log in</a></li>
+                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=cryptocurrency.do?id=${param.id}"/>">Register</a></li>
             </c:if>
         </ul>
             

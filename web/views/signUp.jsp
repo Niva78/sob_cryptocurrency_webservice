@@ -1,0 +1,62 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register SOB Cryptocurrency</title>
+        <link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+        <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
+        <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+    </head>
+    <body>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <c:if test="${empty sessionEmail}">
+                <li role="presentation"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation" class="active"><a href="<c:url value="/views/register.jsp"/>">Register</a></li>
+            </c:if>
+        </ul>
+            
+        <div class="container">
+            <div class="row vertical-offset-100">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please sign up</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="<c:url value="/register.do"/>" role="form" method="post">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Name" name="name" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Phone" name="phone" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="password" type="password">
+                                    </div>
+                                    <div>
+                                        <input name="from" type="hidden" value="${param.from}">
+                                    </div>
+                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                </fieldset>
+                            </form>
+                            <c:if test="${not empty message}">
+                                <div>
+                                    <span class="label label-danger">${message}</span>
+                                </div>
+                            </c:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

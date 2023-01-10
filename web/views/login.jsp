@@ -11,17 +11,11 @@
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        
-        <c:if test="${not empty sessionEmail}">
-            <div>
-                <span class="label label-success">Signed in as ${sessionEmail}</span>
-            </div>
-        </c:if>
-        
         <ul class="nav nav-tabs">
             <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
             <c:if test="${empty sessionEmail}">
                 <li role="presentation" class="active"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
+                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=/listAllCryptocurrency.do"/>">Register</a></li>
             </c:if>
         </ul>
             
