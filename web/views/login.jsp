@@ -15,7 +15,7 @@
             <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
             <c:if test="${empty sessionEmail}">
                 <li role="presentation" class="active"><a href="<c:url value="/views/login.jsp"/>">Log in</a></li>
-                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=/listAllCryptocurrency.do"/>">Register</a></li>
+                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=/listAllCryptocurrency.do"/>">Sign Up</a></li>
             </c:if>
         </ul>
             
