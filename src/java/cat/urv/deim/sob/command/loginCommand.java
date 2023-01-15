@@ -24,7 +24,7 @@ public class loginCommand implements Command {
 
         Integer customerId = service.validateCustomer(email, password);
         
-        if(customerId != null){
+        if (customerId != null) {
             request.getSession().setAttribute("sessionEmail", email);
             request.getSession().setAttribute("sessionPassword", password);
             request.getSession().setAttribute("sessionCustomerId", customerId);

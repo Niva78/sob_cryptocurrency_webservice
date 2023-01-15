@@ -25,16 +25,18 @@ public class signUpCommand implements Command {
         else
             view = "listAllCryptocurrencies.do";
 
-        Integer customerId = service.singUpCustomer(email, name, password, phone);
+        Integer customerId = service.signUpCustomer(email, name, password, phone);
         
-        if(customerId != null){
+        if (customerId != null) {
             request.getSession().setAttribute("sessionEmail", email);
             request.getSession().setAttribute("sessionPassword", password);
             request.getSession().setAttribute("sessionCustomerId", customerId);
         } else {
             view = "views/signUp.jsp";
             request.getSession().setAttribute("sessionEmail", null);
-            request.setAttribute("message", "Invalid credentials");
+            request.getSession().setAttribute("sessionPassword", null);
+            request.getSession().setAttribute("sessionCustomerId", null);
+            request.setAttribute("message", "Invalid information");
         }
         
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);

@@ -54,7 +54,7 @@ public class CustomerService {
         return response.readEntity(new GenericType<List<Purchase>>() {});
     }
     
-    public Integer singUpCustomer(String email, String name, String passwd, String phone){
+    public Integer signUpCustomer(String email, String name, String passwd, String phone){
         WebTarget resource = webTarget;
         
         String customerJSON = customerToJson(email, name, passwd, phone);
@@ -64,7 +64,7 @@ public class CustomerService {
                 .post(Entity.entity(customerJSON, MediaType.APPLICATION_JSON), Response.class);
         
         if (response.getStatus() == 201)
-            return 1;
+            return response.readEntity(Integer.class);
         return null;
     }
     

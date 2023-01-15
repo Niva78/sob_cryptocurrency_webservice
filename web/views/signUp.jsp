@@ -45,7 +45,7 @@
                                     <div>
                                         <input name="from" type="hidden" value="${param.from}">
                                     </div>
-                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign Up">
                                 </fieldset>
                             </form>
                             <c:if test="${not empty message}">
