@@ -26,10 +26,6 @@ public class cryptocurrencyCommand implements Command {
             }
         }
         
-        System.out.println(request.getSession().getAttribute("sessionEmail"));
-        System.out.println(request.getSession().getAttribute("sessionPassword"));
-        System.out.println(request.getSession().getAttribute("sessionCustomerId"));
-        
         int id = Integer.parseInt(request.getParameter("id"));
         Purchase p = new CryptocurrencyService().getCryptocurrencyById(id);
         request.setAttribute("purchase", p);

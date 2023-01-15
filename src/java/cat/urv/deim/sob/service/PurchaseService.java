@@ -18,7 +18,7 @@ public class PurchaseService {
         webTarget = client.target(BASE_URI);
     }
     
-    public Purchase makePurchase(int cryptocurrencyId, double purchasedAmount, String password, String email){
+    public Purchase makePurchase(int cryptocurrencyId, double purchasedAmount, String email, String password) {
         String jsonBody = "{\"purchasedAmount\":" + purchasedAmount + "}";
         String credentials = email + ":" + password;
         String encodedCredentials = Base64.getEncoder().encodeToString(credentials.getBytes());
