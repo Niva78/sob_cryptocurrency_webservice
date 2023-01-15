@@ -18,7 +18,7 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrencies.do"/>">Home</a></li>
             <c:if test="${not empty sessionEmail}">
                 <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
                 <li role="presentation"><a href="<c:url value="/logOut.do?from=/cryptocurrency.do?id=${param.id}"/>">Log out</a></li>

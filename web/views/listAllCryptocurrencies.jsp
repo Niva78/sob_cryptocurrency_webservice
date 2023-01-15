@@ -19,15 +19,15 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href=""<c:url value="/listAllCryptocurrency.do"/>"">Home</a></li>
+            <li role="presentation" class="active"><a href=""<c:url value="/listAllCryptocurrencies.do"/>"">Home</a></li>
             <c:if test="${not empty sessionEmail}">
                 <li role="presentation"><a href="<c:url value="/profile.do"/>">Profile</a></li>
-                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrency.do"/>">Log out</a></li>
+                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrencies.do"/>">Log out</a></li>
             </c:if>
 
             <c:if test="${empty sessionEmail}">
-                <li role="presentation"><a href="<c:url value="/views/login.jsp?from=/listAllCryptocurrency.do"/>">Log in</a></li>
-                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=/listAllCryptocurrency.do"/>">Sign Up</a></li>
+                <li role="presentation"><a href="<c:url value="/views/login.jsp?from=/listAllCryptocurrencies.do"/>">Log in</a></li>
+                <li role="presentation"><a href="<c:url value="/views/signUp.jsp?from=/listAllCryptocurrencies.do"/>">Sign Up</a></li>
             </c:if>
         </ul>
         
@@ -39,8 +39,8 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="<c:url value="/listAllCryptocurrency.do?order=asc"/>">Price: low to high</a></li>
-                    <li><a href="<c:url value="/listAllCryptocurrency.do?order=desc"/>">Price: high to low</a></li>
+                    <li><a href="<c:url value="/listAllCryptocurrencies.do?order=asc"/>">Price: low to high</a></li>
+                    <li><a href="<c:url value="/listAllCryptocurrencies.do?order=desc"/>">Price: high to low</a></li>
                 </ul>
             </div>
             

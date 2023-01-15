@@ -20,7 +20,7 @@ public class loginCommand implements Command {
         if (from != null)
             view = from;
         else
-            view = "listAllCryptocurrency.do";
+            view = "listAllCryptocurrencies.do";
 
         Integer customerId = service.validateCustomer(email, password);
         

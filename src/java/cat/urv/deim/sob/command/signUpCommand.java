@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cat.urv.deim.sob.command;
 
 import cat.urv.deim.sob.service.CustomerService;
@@ -11,11 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- *
- * @author nicol
- */
-public class signUpCommand implements Command{
+public class signUpCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +23,7 @@ public class signUpCommand implements Command{
         if (from != null)
             view = from;
         else
-            view = "listAllCryptocurrency.do";
+            view = "listAllCryptocurrencies.do";
 
         Integer customerId = service.singUpCustomer(email, name, password, phone);
         

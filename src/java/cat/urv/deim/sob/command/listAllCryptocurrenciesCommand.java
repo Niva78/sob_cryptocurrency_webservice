@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cat.urv.deim.sob.command;
 
 import cat.urv.deim.sob.model.Cryptocurrency;
@@ -13,12 +9,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class listAllCryptocurrency implements Command {
+public class listAllCryptocurrenciesCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CryptocurrencyService service = new CryptocurrencyService();
-        String view = "views/listAllCryptocurrency.jsp";
+        String view = "views/listAllCryptocurrencies.jsp";
         
         String order = (String) request.getParameter("order");
         

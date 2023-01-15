@@ -19,10 +19,10 @@
         </c:if>
         
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="<c:url value="/listAllCryptocurrency.do"/>">Home</a></li>
+            <li role="presentation"><a href="<c:url value="/listAllCryptocurrencies.do"/>">Home</a></li>
             <c:if test="${not empty sessionEmail}">
                 <li role="presentation" class="active"><a href="<c:url value="/profile.do"/>">Profile</a></li>
-                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrency.do"/>">Log out</a></li>
+                <li role="presentation"><a href="<c:url value="/logOut.do?from=/listAllCryptocurrencies.do"/>">Log out</a></li>
             </c:if>
         </ul>
         <div class="container">

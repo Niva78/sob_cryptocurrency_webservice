@@ -1,8 +1,8 @@
 {
   "commands": [
     {
-      "URI": "/listAllCryptocurrency",
-      "class": "cat.urv.deim.sob.command.listAllCryptocurrency"
+      "URI": "/listAllCryptocurrencies",
+      "class": "cat.urv.deim.sob.command.listAllCryptocurrenciesCommand"
     },
     {
       "URI": "/cryptocurrency",
